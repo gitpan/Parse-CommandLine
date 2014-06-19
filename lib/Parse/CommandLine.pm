@@ -3,7 +3,7 @@ use 5.008001;
 use strict;
 use warnings;
 
-our $VERSION = "0.01";
+our $VERSION = "0.02";
 
 use parent 'Exporter';
 our @EXPORT = qw/parse_command_line/;
@@ -42,7 +42,7 @@ sub parse_command_line {
                 $buf .= $char;
             }
             else {
-                push @argv, $buf;
+                push @argv, $buf if defined $buf;
                 undef $buf;
             }
             next;
